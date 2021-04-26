@@ -1,0 +1,38 @@
+<!--
+ * @Author: canlong.shen
+ * @Date: 2021-04-26 15:44:44
+ * @LastEditors: your name
+ * @LastEditTime: 2021-04-26 15:50:21
+ * @Description: file content   
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+   const app  =    Vue.createApp({
+         template:`<div v-bind='this.$arrts'>hello world</div>
+          <lg-son  msg='long' ></lg-son>
+         `
+     })
+
+     app.component('lgSon',{
+         data(){
+            return _msg = this.$attrs.msg
+         },
+         mounted() {
+             console.log(this.$attrs.msg)
+         },
+         template:`{{_msg}}`
+     })
+     app.mount("#app")
+    </script>
+</body>
+</html>
