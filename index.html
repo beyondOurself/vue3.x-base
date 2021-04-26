@@ -1,3 +1,10 @@
+<!--
+ * @Author: canlong.shen
+ * @Date: 2021-04-26 17:17:35
+ * @LastEditors: your name
+ * @LastEditTime: 2021-04-26 17:22:53
+ * @Description: file content
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +17,15 @@
 <body>
     <div id="app"></div>
     <script>
-     Vue.createApp({
+       const app  =   Vue.createApp({
          template:'<div>hello world</div>'
-     }).mount("#app")
+     })
+
+     app.component("xxx",{
+         
+     })
+
+     const vm = app.mount("#app")
     </script>
 </body>
 </html>
