@@ -1,0 +1,54 @@
+<!--
+ * @Author: canlong.shen
+ * @Date: 2021-04-26 15:44:44
+ * @LastEditors: your name
+ * @LastEditTime: 2021-04-26 16:09:20
+ * @Description: file content   
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+   const app  =    Vue.createApp({
+       data(){
+        return {
+            counter:0
+        }
+       },
+         methods:{
+            addCounter(params){
+                console.log(params)
+                
+            }
+         },
+         template:`<div v-bind='this.$arrts'>hello world</div>
+          <lg-son :counter='counter'  @add="addCounter" ></lg-son>
+         `
+     })
+
+     app.component('lgSon',{
+         props:['counter'],
+         data(){
+            return {
+                curCounter : this.counter
+            }
+         },
+         emits:{
+            add(v){
+                return v < 10 ? true: false;
+            }
+         },
+         template:`<button @click="this.$emit('add',curCounter += 2)">点击调用父组件</button>`
+     })
+     app.mount("#app")
+    </script>
+</body>
+</html>
